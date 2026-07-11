@@ -26,7 +26,8 @@ export function Footer() {
               <img
                 src="/brand/praxivision.png"
                 alt="Praxivision"
-                className="h-6 w-auto rounded bg-paper/95 px-2.5 py-1"
+                className="h-[72px] w-auto max-w-full"
+                style={{ filter: "brightness(1.65) saturate(0.7)" }}
               />
               <div>
                 <p className="text-[14px] text-linen">Praxivision Pvt Ltd</p>

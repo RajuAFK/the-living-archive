@@ -4,7 +4,8 @@ import { FACTS } from "@/lib/site";
 
 /**
  * Public access platforms built by the studio — where anyone can explore
- * heritage sites and culturally significant objects.
+ * heritage sites and culturally significant objects. Presented as equal
+ * editorial rows: identity column, name column, description column.
  */
 export function PlatformsSection() {
   return (
@@ -18,58 +19,67 @@ export function PlatformsSection() {
           </p>
         </Reveal>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-2">
-          <Reveal delay={0.05}>
+        <div className="mt-16">
+          {/* Tour It Virtually */}
+          <Reveal>
             <a
               href={FACTS.platforms.tourItVirtually}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block rounded-2xl border p-8 transition-colors duration-300 hover:border-verdigris/50 md:p-10"
-              style={{ borderColor: "var(--hairline)" }}
+              className="group hairline-t grid gap-8 py-12 md:grid-cols-[180px_1fr_1.2fr] md:items-center md:gap-10"
             >
-              <div className="flex items-start justify-between gap-6">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/brand/tiv.png"
+                alt="Tour It Virtually"
+                className="h-28 w-auto md:h-32 md:justify-self-center"
+              />
+              <div>
                 <p className="label-mono flex items-center gap-2 !text-verdigris">
                   <span className="inline-block h-1.5 w-1.5 rounded-full bg-verdigris" />
                   Live
                 </p>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/brand/tiv.png"
-                  alt="Tour It Virtually"
-                  className="h-16 w-auto"
-                />
+                <h3 className="display mt-4 text-3xl text-linen transition-colors duration-300 group-hover:text-verdigris-bright md:text-4xl">
+                  Tour It Virtually
+                  <span
+                    aria-hidden="true"
+                    className="ml-3 inline-block transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
+                  >
+                    ↗
+                  </span>
+                </h3>
+                <p className="mt-3 font-mono text-[11px] tracking-[0.14em] text-linen-dim">
+                  touritvirtually.com
+                </p>
               </div>
-              <h3 className="display mt-5 text-3xl text-linen transition-colors duration-300 group-hover:text-verdigris-bright">
-                Tour It Virtually
-                <span aria-hidden="true" className="ml-3 inline-block transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
-              </h3>
-              <p className="mt-2 font-mono text-[11px] tracking-[0.14em] text-linen-dim">
-                touritvirtually.com
-              </p>
               <TodoSlot
                 id="home.platforms.touritvirtually"
                 hint="One short paragraph on what Tour It Virtually offers the public — which sites/tours are on it and why it exists."
-                className="mt-8"
               />
             </a>
           </Reveal>
 
-          <Reveal delay={0.15}>
-            <div
-              className="rounded-2xl border border-dashed p-8 md:p-10"
-              style={{ borderColor: "var(--hairline)" }}
-            >
-              <p className="label-mono">In the works</p>
-              <h3 className="display mt-5 text-3xl text-linen-dim">
-                Virtual Museum
-              </h3>
-              <p className="mt-2 font-mono text-[11px] tracking-[0.14em] text-linen-dim/70">
-                Coming soon
-              </p>
+          {/* Virtual Museum */}
+          <Reveal delay={0.1}>
+            <div className="hairline-t grid gap-8 border-b py-12 md:grid-cols-[180px_1fr_1.2fr] md:items-center md:gap-10" style={{ borderBottomColor: "var(--hairline)" }}>
+              <div
+                className="flex h-28 w-28 items-center justify-center rounded-full border border-dashed md:h-32 md:w-32 md:justify-self-center"
+                style={{ borderColor: "var(--hairline-strong)" }}
+              >
+                <span className="label-mono">Soon</span>
+              </div>
+              <div>
+                <p className="label-mono">In the works</p>
+                <h3 className="display mt-4 text-3xl text-linen-dim md:text-4xl">
+                  Virtual Museum
+                </h3>
+                <p className="mt-3 font-mono text-[11px] tracking-[0.14em] text-linen-dim/70">
+                  Coming soon
+                </p>
+              </div>
               <TodoSlot
                 id="home.platforms.virtualmuseum"
                 hint="One short paragraph on the Virtual Museum: what it will hold, who it's for, expected shape. Also confirm the final name/domain."
-                className="mt-8"
               />
             </div>
           </Reveal>

@@ -58,11 +58,16 @@ const STRIPS: { name: string; src: string }[][] = [
  */
 export function ClientsTicker() {
   return (
-    <section id="clients" className="relative overflow-hidden bg-ink-1 py-24 md:py-32">
+    <section
+      id="clients"
+      className="reading-room relative overflow-hidden py-24 md:py-32"
+      // pure white so logos with opaque white canvases sit invisibly on it
+      style={{ background: "#ffffff" }}
+    >
       <div className="mx-auto max-w-[1200px] px-6 md:px-10">
         <Reveal>
           <p className="label-mono">Trusted with their image</p>
-          <p className="display mt-6 max-w-2xl text-3xl text-linen md:text-4xl">
+          <p className="display mt-6 max-w-2xl text-3xl md:text-4xl" style={{ color: "var(--fg)" }}>
             A range of clients, across <em>industries</em>.
           </p>
         </Reveal>
@@ -97,18 +102,18 @@ function Strip({
       }}
     >
       <div
-        className="flex w-max gap-5 pr-5 will-change-transform group-hover:[animation-play-state:paused]"
+        className="flex w-max gap-16 pr-16 will-change-transform group-hover:[animation-play-state:paused]"
         style={{
           animation: `${reverse ? "ticker-right" : "ticker-left"} ${duration}s linear infinite`,
         }}
       >
         {[0, 1].map((dup) => (
-          <div key={dup} className="flex gap-5" aria-hidden={dup === 1}>
+          <div key={dup} className="flex items-center gap-16" aria-hidden={dup === 1}>
             {logos.map((l) => (
               <div
                 key={`${dup}-${l.src}`}
                 title={l.name}
-                className="flex h-24 w-44 shrink-0 items-center justify-center rounded-xl bg-paper p-5"
+                className="flex h-16 w-36 shrink-0 items-center justify-center"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
