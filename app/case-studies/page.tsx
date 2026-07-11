@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import { CaseStudiesIndex } from "@/components/case-studies/CaseStudiesIndex";
 
 export const metadata: Metadata = {
-  title: "Case Studies — Praxivision",
+  title: "Case Studies",
   description:
     "How institutions and industries brought their documentation problems to Praxivision — and what was delivered.",
+  alternates: { canonical: "/case-studies/" },
+  openGraph: { title: "Case Studies · Praxivision", url: "/case-studies/", type: "website" },
 };
 
 export default function CaseStudiesPage() {

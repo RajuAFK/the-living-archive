@@ -8,6 +8,8 @@ import { Reveal } from "@/components/Reveal";
 import { TodoSlot } from "@/components/TodoSlot";
 import { SERVICE_COPY } from "@/lib/service-copy";
 import { ServiceShowcase } from "@/components/services/ServiceShowcase";
+import { JsonLd } from "@/components/JsonLd";
+import { serviceSchema, breadcrumbSchema } from "@/lib/seo";
 
 export function generateStaticParams() {
   return SERVICES.map((s) => ({ slug: s.slug }));
@@ -20,9 +22,19 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const service = SERVICES.find((s) => s.slug === slug);
+  if (!service) return { title: "Services" };
+  const desc = SERVICE_COPY[service.slug]?.[0] ?? `${service.name}: ${service.scope}.`;
+  const canonical = `/services/${service.slug}/`;
   return {
-    title: service ? `${service.name} — Praxivision` : "Services — Praxivision",
-    description: service ? `${service.name}: ${service.scope}.` : undefined,
+    title: service.name,
+    description: desc,
+    alternates: { canonical },
+    openGraph: {
+      title: `${service.name} · Praxivision`,
+      description: desc,
+      url: canonical,
+      type: "website",
+    },
   };
 }
 
@@ -37,9 +49,20 @@ export default async function ServicePage({
   const service = SERVICES[index];
   const prev = SERVICES[(index + SERVICES.length - 1) % SERVICES.length];
   const next = SERVICES[(index + 1) % SERVICES.length];
+  const body = (SERVICE_COPY[service.slug] ?? [service.scope]).join(" ");
 
   return (
     <div>
+      <JsonLd
+        data={[
+          serviceSchema(service, body),
+          breadcrumbSchema([
+            ["Home", "/"],
+            ["Services", "/services/"],
+            [service.name, `/services/${service.slug}/`],
+          ]),
+        ]}
+      />
       {/* hero band */}
       <header className="relative flex min-h-[68svh] items-end overflow-hidden bg-ink-0 pt-[76px]">
         {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { NAV, SERVICES, FACTS } from "@/lib/site";
 import { ContactForm } from "./ContactForm";
-import { TodoSlot } from "./TodoSlot";
 
 export function Footer() {
   return (
@@ -29,21 +28,22 @@ export function Footer() {
                 className="h-[72px] w-auto max-w-full"
                 style={{ filter: "brightness(1.65) saturate(0.7)" }}
               />
-              <div>
-                <p className="text-[14px] text-linen">Praxivision Pvt Ltd</p>
-                <p className="mt-1 text-[14px] text-linen-dim">
+              <div className="space-y-1 text-[14px]">
+                <p className="text-linen">Praxivision Pvt Ltd</p>
+                <p className="text-linen-dim">
+                  1-11-182/G1, Begumpet,
+                  <br />
+                  Hyderabad — 500016, India
+                </p>
+                <p className="pt-2">
                   <a
                     href={`mailto:${FACTS.contactEmail}`}
-                    className="transition-colors hover:text-verdigris-bright"
+                    className="text-linen-dim transition-colors hover:text-verdigris-bright"
                   >
                     {FACTS.contactEmail}
                   </a>
                 </p>
               </div>
-              <TodoSlot
-                id="footer.company-details"
-                hint="Registered office address (+ GST/CIN if it should appear publicly). Phone numbers are deliberately not shown anywhere on the site."
-              />
             </div>
 
             <nav aria-label="Site">

@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-07-11T07:18:21.849Z",
+ "generatedAt": "2026-07-11T16:38:49.237Z",
  "items": [
   {
    "id": "corporate",
@@ -622,13 +622,12 @@
   {
    "id": "oc-tour-new",
    "domain": "vr-360",
-   "industry": "corporate",
+   "industry": "hospitality",
    "kind": "iframe",
-   "title": "OC Tour New",
+   "title": "One Continent Atria",
    "cover": "/portfolio/Praxis%20VRs/Thumbnails%20for%20Web%20Gallereis/OC_Tour_New.png",
    "src": "/portfolio/Praxis%20VRs/OC_Tour_New/One_Continent_Atria.html",
-   "sort": 16,
-   "review": true
+   "sort": 16
   },
   {
    "id": "lsch-tour",
@@ -1111,16 +1110,6 @@
    "sort": 64
   },
   {
-   "id": "glb",
-   "domain": "3d",
-   "industry": "heritage",
-   "kind": "model",
-   "title": "GLB",
-   "cover": null,
-   "src": "/portfolio/3D%20Models/GLB/SARANATH%20STHUPA.glb",
-   "sort": 65
-  },
-  {
    "id": "ganesha",
    "domain": "3d",
    "industry": "heritage",
@@ -1128,7 +1117,7 @@
    "title": "Ganesha",
    "cover": "/portfolio/3D%20Models/ganesha/ganesha.png",
    "src": "/portfolio/3D%20Models/ganesha/Ganesha_Output4.glb",
-   "sort": 66
+   "sort": 65
   },
   {
    "id": "lepakshi-ganesha",
@@ -1138,7 +1127,7 @@
    "title": "Lepakshi Ganesha",
    "cover": "/portfolio/3D%20Models/lepakshi-ganesha/lepakshi-ganesha.png",
    "src": "/portfolio/3D%20Models/lepakshi-ganesha/Lepakshi_Ganesha.glb",
-   "sort": 67
+   "sort": 66
   },
   {
    "id": "saranath-sthupa",
@@ -1148,7 +1137,7 @@
    "title": "Saranath Sthupa",
    "cover": "/portfolio/3D%20Models/saranath-sthupa/saranath-sthupa.jpg",
    "src": "/portfolio/3D%20Models/saranath-sthupa/Saranath%20Sthupa_web_draco.glb",
-   "sort": 68
+   "sort": 67
   },
   {
    "id": "shakti",
@@ -1158,7 +1147,7 @@
    "title": "Shakti",
    "cover": "/portfolio/3D%20Models/shakti/shakti.png",
    "src": "/portfolio/3D%20Models/shakti/Shakti.glb",
-   "sort": 69
+   "sort": 68
   },
   {
    "id": "siva-family",
@@ -1168,7 +1157,7 @@
    "title": "Siva Family",
    "cover": "/portfolio/3D%20Models/siva-family/siva-family.png",
    "src": "/portfolio/3D%20Models/siva-family/Siva_Family_Final.glb",
-   "sort": 70
+   "sort": 69
   },
   {
    "id": "tara",
@@ -1178,7 +1167,7 @@
    "title": "Tara",
    "cover": "/portfolio/3D%20Models/tara/tara.jpg",
    "src": "/portfolio/3D%20Models/tara/Face.glb",
-   "sort": 71
+   "sort": 70
   }
  ]
 }

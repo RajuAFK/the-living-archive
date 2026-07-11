@@ -3,11 +3,35 @@ import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import { mediaUrl } from "@/lib/media";
 import { FACTS } from "@/lib/site";
+import { JsonLd } from "@/components/JsonLd";
+import { abs, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Studio — Praxivision",
+  title: "Studio",
   description:
-    "A photography studio whose discipline evolved into 3D capture, 360° capture, gigapixel imaging and reality capture.",
+    "The studio behind Praxivision. Founded 1992 by B. Sridhar Raju, an award-winning photographer whose discipline evolved into photogrammetry, 3D, 360° and gigapixel reality capture.",
+  alternates: { canonical: "/studio/" },
+  openGraph: { title: "Studio · Praxivision", url: "/studio/", type: "profile" },
+};
+
+const founderSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": abs("/studio/#founder"),
+  name: "B. Sridhar Raju",
+  jobTitle: "Founder & Director of Photography",
+  worksFor: { "@id": abs("/#organization") },
+  alumniOf: "Jawaharlal Nehru Architecture and Fine Arts University (JNAFAU), Hyderabad",
+  knowsAbout: [
+    "Photography",
+    "Photogrammetry",
+    "Gigapixel imaging",
+    "360° virtual tours",
+    "Reality capture",
+    "Heritage documentation",
+    "Digital preservation",
+  ],
+  award: "Twin Gold Medals in Photography, JNAFAU",
 };
 
 /** The four ways the studio's photographic craft now captures reality. */
@@ -45,6 +69,15 @@ const CRAFTS = [
 export default function StudioPage() {
   return (
     <div>
+      <JsonLd
+        data={[
+          founderSchema,
+          breadcrumbSchema([
+            ["Home", "/"],
+            ["Studio", "/studio/"],
+          ]),
+        ]}
+      />
       {/* hero */}
       <header className="relative flex min-h-[60svh] items-end bg-ink-0 pt-[76px]">
         <div className="mx-auto w-full max-w-[1200px] px-6 pb-16 md:px-10 md:pb-20">
@@ -67,18 +100,14 @@ export default function StudioPage() {
           <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
             <Reveal>
               <p className="label-mono">The man behind it</p>
-              <div
-                className="mt-8 flex aspect-[4/5] items-center justify-center rounded-lg border border-dashed"
-                style={{ borderColor: "var(--hairline-strong)" }}
-                data-copy-todo="studio.portrait"
-              >
-                <p className="label-mono text-center">
-                  ◌ portrait pending
-                  <br />
-                  <span className="normal-case tracking-normal" style={{ letterSpacing: 0 }}>
-                    (studio.portrait — supply a photograph)
-                  </span>
-                </p>
+              <div className="media-box mt-8 aspect-[4/5] overflow-hidden rounded-lg">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/brand/founder.jpg"
+                  alt="B. Sridhar Raju, founder of Praxis Studio, with a camera in the field"
+                  className="h-full w-full object-cover"
+                  style={{ objectPosition: "50% 30%" }}
+                />
               </div>
             </Reveal>
             <Reveal delay={0.1} className="flex flex-col justify-center gap-10">

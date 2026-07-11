@@ -3,9 +3,11 @@ import { Suspense } from "react";
 import { ArchiveExplorer } from "@/components/archives/ArchiveExplorer";
 
 export const metadata: Metadata = {
-  title: "Archives — Praxivision",
+  title: "Archives",
   description:
     "Three decades of documentation: photography, 360° VR tours, 3D digitization and gigapixel captures across heritage, healthcare, hospitality and industry.",
+  alternates: { canonical: "/archives/" },
+  openGraph: { title: "Archives · Praxivision", url: "/archives/", type: "website" },
 };
 
 export default function ArchivesPage() {
