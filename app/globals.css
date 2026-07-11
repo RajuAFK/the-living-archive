@@ -1,0 +1,217 @@
+@import "tailwindcss";
+
+/* ————————————————————————————————————————————————————————————————
+   PRAXIVISION — design tokens
+   80% dark vault (warm charcoal, media glows) /
+   20% light reading rooms (warm ivory, editorial)
+   Accent: verdigris — the patina of preserved bronze.
+   ———————————————————————————————————————————————————————————————— */
+
+:root {
+  /* dark vault */
+  --ink-0: #0b0a08;
+  --ink-1: #14110d;
+  --ink-2: #1e1a14;
+  --linen: #ede6da;
+  --linen-dim: #a89e8d;
+
+  /* light reading rooms */
+  --paper: #f2ece1;
+  --paper-2: #e9e0cf;
+  --ink-text: #191510;
+  --ink-text-dim: #60584a;
+
+  /* accent */
+  --verdigris: #79a995;
+  --verdigris-bright: #93c4ad;
+  --verdigris-deep: #3d6a59;
+
+  /* contextual (flip inside .reading-room) */
+  --bg: var(--ink-0);
+  --fg: var(--linen);
+  --fg-dim: var(--linen-dim);
+  --accent: var(--verdigris);
+  --hairline: rgba(237, 230, 218, 0.14);
+  --hairline-strong: rgba(237, 230, 218, 0.28);
+
+  /* motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+@theme inline {
+  --color-ink-0: var(--ink-0);
+  --color-ink-1: var(--ink-1);
+  --color-ink-2: var(--ink-2);
+  --color-linen: var(--linen);
+  --color-linen-dim: var(--linen-dim);
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-ink-text: var(--ink-text);
+  --color-ink-text-dim: var(--ink-text-dim);
+  --color-verdigris: var(--verdigris);
+  --color-verdigris-bright: var(--verdigris-bright);
+  --color-verdigris-deep: var(--verdigris-deep);
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-fg-dim: var(--fg-dim);
+  --color-accent: var(--accent);
+  --color-hairline: var(--hairline);
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-archivo), system-ui, sans-serif;
+  --font-mono: var(--font-fragment), monospace;
+}
+
+body {
+  background: var(--ink-0);
+  color: var(--linen);
+  font-family: var(--font-archivo), system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--verdigris-deep);
+  color: var(--paper);
+}
+
+:focus-visible {
+  outline: 1.5px solid var(--verdigris);
+  outline-offset: 3px;
+}
+
+/* thin, unobtrusive scrollbar on the vault */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(168, 158, 141, 0.35) transparent;
+}
+
+/* ——— film grain over everything, extremely quiet ——— */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.05;
+}
+
+/* ——— light "reading room" context: children re-theme via vars ——— */
+.reading-room {
+  --bg: var(--paper);
+  --fg: var(--ink-text);
+  --fg-dim: var(--ink-text-dim);
+  --accent: var(--verdigris-deep);
+  --hairline: rgba(25, 21, 16, 0.16);
+  --hairline-strong: rgba(25, 21, 16, 0.32);
+  background: var(--paper);
+  color: var(--ink-text);
+}
+
+/* ——— recurring idioms ——— */
+
+/* archival metadata label */
+.label-mono {
+  font-family: var(--font-fragment), monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+}
+
+/* dark glass (navbar, overlays) */
+.glass {
+  background: color-mix(in srgb, var(--ink-0) 62%, transparent);
+  -webkit-backdrop-filter: blur(18px) saturate(1.35);
+  backdrop-filter: blur(18px) saturate(1.35);
+  border: 1px solid rgba(237, 230, 218, 0.1);
+}
+
+.hairline-t {
+  border-top: 1px solid var(--hairline);
+}
+.hairline-b {
+  border-bottom: 1px solid var(--hairline);
+}
+
+/* display headline defaults */
+.display {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 340;
+  letter-spacing: -0.015em;
+  line-height: 1.02;
+}
+.display em,
+.display i {
+  font-style: italic;
+  font-weight: 380;
+}
+
+/* media never causes layout shift — always boxed in an aspect wrapper */
+.media-box {
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+.media-box > img,
+.media-box > iframe,
+.media-box > video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 0;
+}
+
+/* ——— keyframes ——— */
+
+/* hero slide slow drift (Ken Burns, GPU-composited transform only) */
+@keyframes hero-drift {
+  from {
+    transform: scale(1.07) translateX(1.2%);
+  }
+  to {
+    transform: scale(1) translateX(0);
+  }
+}
+
+/* hero manual-rail progress fill */
+@keyframes hero-progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* client logo ticker strips */
+@keyframes ticker-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes ticker-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

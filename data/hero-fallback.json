@@ -1,0 +1,34 @@
+{
+  "slides": [
+    {
+      "id": "ajanta",
+      "src": "/portfolio/Photography/Travel/Ajanta_5.jpg",
+      "label": "Ajanta Caves",
+      "meta": "Heritage documentation"
+    },
+    {
+      "id": "golconda",
+      "src": "/portfolio/Gigapans/Golconda_Gigapan/Golconda_Gigapan.png",
+      "label": "Golconda Fort",
+      "meta": "Gigapixel capture"
+    },
+    {
+      "id": "lepakshi-ganesha",
+      "src": "/portfolio/3D%20Models/lepakshi-ganesha/lepakshi-ganesha.png",
+      "label": "Lepakshi Ganesha",
+      "meta": "Photogrammetry"
+    },
+    {
+      "id": "industrial",
+      "src": "/portfolio/Photography/Industrial/1.jpg",
+      "label": "Industrial documentation",
+      "meta": "Photography"
+    },
+    {
+      "id": "ravi-varma",
+      "src": "/portfolio/Gigapans/Paintings/Ravivarma_Painting.jpg",
+      "label": "Raja Ravi Varma",
+      "meta": "Fine-art digitization"
+    }
+  ]
+}
