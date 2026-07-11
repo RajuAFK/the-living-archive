@@ -5,9 +5,10 @@
  * Body (JSON or form): { name, email, phone?, message, website? }
  *   `website` is a honeypot — real users never fill it.
  *
- * Stores the inquiry in `la_inquiries` (created on first use) and emails it
- * to CONTACT_TO. The DB row is the source of truth: a mail() failure is
- * logged but never fails the request.
+ * Stores the inquiry in `contact_inquiries` — the SAME table the previous
+ * praxivision.com used (history stays unified) — and emails it to CONTACT_TO.
+ * The DB row is the source of truth: a mail() failure is logged but never
+ * fails the request.
  */
 declare(strict_types=1);
 
@@ -49,25 +50,14 @@ try {
 
     $pdo = db();
 
-    $pdo->exec(
-        'CREATE TABLE IF NOT EXISTS la_inquiries (
-            id          INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-            name        VARCHAR(120)  NOT NULL,
-            email       VARCHAR(190)  NOT NULL,
-            phone       VARCHAR(40)   NULL,
-            message     TEXT          NOT NULL,
-            ip          VARCHAR(45)   NULL,
-            user_agent  VARCHAR(255)  NULL,
-            emailed_at  DATETIME      NULL,
-            created_at  TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP,
-            KEY idx_ip_created (ip, created_at)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci'
-    );
+    // Same table + delivery as the previous praxivision.com contact form
+    // (proven live): inquiry history stays in one place.
+    ensure_contact_table($pdo);
 
     // Per-IP rate limit: max 5 inquiries per rolling hour.
     if ($ip !== null) {
         $stmt = $pdo->prepare(
-            'SELECT COUNT(*) FROM la_inquiries
+            'SELECT COUNT(*) FROM contact_inquiries
              WHERE ip = ? AND created_at > (NOW() - INTERVAL 1 HOUR)'
         );
         $stmt->execute([$ip]);
@@ -77,7 +67,7 @@ try {
     }
 
     $stmt = $pdo->prepare(
-        'INSERT INTO la_inquiries (name, email, phone, message, ip, user_agent)
+        'INSERT INTO contact_inquiries (name, email, phone, message, ip, user_agent)
          VALUES (?, ?, ?, ?, ?, ?)'
     );
     $stmt->execute([$name, $email, $phone !== '' ? $phone : null, $message, $ip, $ua]);
@@ -111,7 +101,7 @@ try {
 
     $sent = @mail(CONTACT_TO, $mailSubject, $mailBody, $headers);
     if ($sent) {
-        $pdo->prepare('UPDATE la_inquiries SET emailed_at = NOW() WHERE id = ?')
+        $pdo->prepare('UPDATE contact_inquiries SET emailed_at = NOW() WHERE id = ?')
             ->execute([$id]);
     } else {
         error_log('[la-contact] mail() failed for inquiry #' . $id);

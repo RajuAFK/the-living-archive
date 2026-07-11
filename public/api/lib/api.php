@@ -58,3 +58,34 @@ function require_method(string $method): void {
         json_err('method not allowed', 405);
     }
 }
+
+/**
+ * The contact form reuses the previous site's proven `contact_inquiries`
+ * table (already live in u220392676_praxis, mail flow verified). The new
+ * form collects a phone number the old schema lacked, so add that column
+ * once if it's missing. Idempotent and cheap.
+ */
+function ensure_contact_table(PDO $pdo): void {
+    $pdo->exec(
+        'CREATE TABLE IF NOT EXISTS contact_inquiries (
+            id          INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+            name        VARCHAR(120)  NOT NULL,
+            email       VARCHAR(190)  NOT NULL,
+            subject     VARCHAR(200)  NULL,
+            message     TEXT          NOT NULL,
+            ip          VARCHAR(45)   NULL,
+            user_agent  VARCHAR(255)  NULL,
+            emailed_at  DATETIME      NULL,
+            created_at  TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            KEY idx_ip_created (ip, created_at)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci'
+    );
+    $stmt = $pdo->prepare(
+        'SELECT COUNT(*) FROM information_schema.COLUMNS
+         WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = ? AND COLUMN_NAME = ?'
+    );
+    $stmt->execute(['contact_inquiries', 'phone']);
+    if ((int)$stmt->fetchColumn() === 0) {
+        $pdo->exec('ALTER TABLE contact_inquiries ADD COLUMN phone VARCHAR(40) NULL AFTER email');
+    }
+}

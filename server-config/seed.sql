@@ -52,7 +52,9 @@ CREATE TABLE IF NOT EXISTS la_case_studies (
     KEY idx_status_sort (status, sort)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- la_inquiries is auto-created by api/public/contact.php (CREATE TABLE IF NOT EXISTS)
+-- The contact form reuses the previous site's `contact_inquiries` table
+-- (already live in this database); api/public/contact.php ensures it exists
+-- and adds the `phone` column on first use. Nothing to create here.
 
 CREATE TABLE IF NOT EXISTS la_login_attempts (
     id           INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,

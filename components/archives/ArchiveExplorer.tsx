@@ -82,8 +82,8 @@ export function ArchiveExplorer() {
 
   return (
     <div className="mx-auto max-w-[1400px] px-6 pb-28 md:px-10">
-      {/* filter bar */}
-      <div className="hairline-b sticky top-0 z-20 -mx-6 bg-ink-0/90 px-6 py-4 backdrop-blur-md md:-mx-10 md:px-10">
+      {/* filter bar — sticks below the floating pill navbar (12px + 56px + gap) */}
+      <div className="hairline-b sticky top-[76px] z-20 -mx-6 bg-ink-0/90 px-6 py-4 backdrop-blur-md md:-mx-10 md:px-10">
         <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
           <div className="flex flex-wrap items-center gap-1" role="tablist" aria-label="Domain">
             <FilterTab active={!domain} onClick={() => setParam("domain", "")}>

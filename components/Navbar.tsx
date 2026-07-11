@@ -52,11 +52,13 @@ export function Navbar() {
         <nav
           aria-label="Primary"
           className={[
-            "glass pointer-events-auto flex items-center justify-between",
+            "pointer-events-auto flex items-center justify-between",
             "transition-all duration-700 [transition-timing-function:var(--ease-out)]",
             scrolled
-              ? "mt-3 h-14 w-[min(960px,calc(100%-1.5rem))] rounded-full pl-5 pr-2 shadow-[0_12px_48px_rgba(0,0,0,0.45)]"
-              : "mt-0 h-[76px] w-full rounded-none border-x-0 border-t-0 pl-6 pr-4 md:pl-10 md:pr-8",
+              ? "glass mt-3 h-14 w-[min(960px,calc(100%-1.5rem))] rounded-full pl-5 pr-2 shadow-[0_12px_48px_rgba(0,0,0,0.45)]"
+              : // at the top of the page the bar is fully transparent — the hero
+                // owns the frame; a soft scrim in the hero itself keeps links legible
+                "mt-0 h-[76px] w-full rounded-none border border-transparent bg-transparent pl-6 pr-4 md:pl-10 md:pr-8",
           ].join(" ")}
         >
           {/* brand */}

@@ -525,7 +525,7 @@ async function viewInbox(){
         <td><strong>${esc(q.name)}</strong><br>
             <a href="mailto:${esc(q.email)}">${esc(q.email)}</a>
             ${q.phone?`<br><span class="muted">${esc(q.phone)}</span>`:""}</td>
-        <td style="max-width:480px;white-space:pre-wrap">${esc(q.message)}</td>
+        <td style="max-width:480px;white-space:pre-wrap">${q.subject?`<span class="muted">${esc(q.subject)}</span>\n`:""}${esc(q.message)}</td>
         <td>${q.emailed_at ? "✓" : "—"}</td>
       </tr>`).join("") || '<tr><td colspan="4" class="muted">Empty inbox.</td></tr>'}
     </tbody></table>`;
