@@ -46,7 +46,7 @@ other sites: static files in `public_html/`, secrets in per-domain `private/`.
 - [ ] `private/config.php` in place (never in git)
 - [ ] Schema + seed ran; `/api/public/archives.php` returns 72 items
 - [ ] `/api/public/hero.php` returns slides
-- [ ] Contact form: live submission → `la_inquiries` row + email received
+- [ ] Contact form: live submission → `contact_inquiries` row + email received
 - [ ] `/admin/` login works; hero reorder round-trips; test upload lands in R2 `/uploads/`
 - [ ] Case-study rewrite works: `/case-studies/anything/` serves the shell (404-free)
 - [ ] Old site's `public_html` contents replaced (keep a zip backup first)
