@@ -24,23 +24,34 @@ All six bodies wired from your copy (`lib/service-copy.ts`); review each on `/se
 | ~~`studio.founder.story`~~ | **DONE** — B. Sridhar Raju narrative; review the four paragraphs on /studio/. |
 | ~~Mission & Vision~~ | **DONE** — review on /studio/. |
 | ~~`studio.craft.3d` / `.360` / `.gigapixel` / `.reality`~~ | **DONE** — review on /studio/ (One craft, four instruments). |
-| `studio.portrait` | **STILL NEEDED** — a portrait photograph of Sridhar Raju (file or R2 path). |
+| ~~`studio.portrait`~~ | **DONE** — founder portrait (from the previous build) is live on /studio/. |
 
-## Footer
+## Footer — ALL DONE ✓
 
-| ID | What's needed |
-|---|---|
-| `footer.company-details` | Registered office address (+ GST/CIN if it should appear publicly). Company name (Praxivision Pvt Ltd) and email are in; phone numbers deliberately omitted site-wide. |
+Registered address (1-11-182/G1, Begumpet, Hyderabad — 500016), company name
+(Praxivision Pvt Ltd), and email are live. Phone numbers deliberately omitted.
 
-## Review / confirm (already live with best guesses)
+## Nothing on the site is a placeholder anymore.
 
-- **Written by me, approve or rewrite:** the short display lines — "Industries and cultures, recorded with photographic discipline…", "A photography studio's rigour…", "Every instrument we point at reality was earned through photography.", "Tell us what needs to be preserved.", archive/section labels.
-- **Hero slides:** currently Ajanta Caves, Golconda Fort, Lepakshi Ganesha, Industrial, Raja Ravi Varma (all from the archive). Reorder/replace anytime in the admin portal.
-- **Archive taxonomy guesses:** `oc-tour-new` is tagged *corporate* (unknown client — what is "OC"?); the 3D item titled **"GLB"** looks like a duplicate of Saranath Sthupa and needs a real title; car VRs are tagged *automotive*; paintings gigapixels *fine-art*. All editable in the admin portal.
+Every `◌ COPY PENDING` box is gone. The only open item is the **Virtual Museum
+name/domain**, which you'll confirm once the domain is secured — placeholder
+copy is live and reads fine until then.
 
-## Deploy-time secrets (never in git — go into `private/config.php`)
+## Review / confirm (already live)
 
-- MySQL password for `u220392676_studioadmin` (or a new DB user).
-- Admin portal password → hash via `php -r "echo password_hash('…', PASSWORD_DEFAULT);"`.
-- R2 API credentials (Object Read & Write, scoped to `praxivision-portfolio`) for admin uploads.
-- R2 bucket CORS must additionally allow `PUT` from `https://praxivision.com` (admin uploads go browser → R2 directly).
+- **Short display lines I wrote** (approve or rewrite anytime): "A photography
+  studio's rigour, carried into every way of capturing reality.", "Every
+  instrument we point at reality was earned through photography.", "Tell us what
+  needs to be preserved."
+- **Hero slides:** Ajanta, Golconda, Lepakshi Ganesha, Industrial, Raja Ravi
+  Varma. Reorder/replace anytime in the admin portal.
+- **Archive taxonomy fixed:** GLB duplicate removed; `oc-tour-new` → "One
+  Continent Atria" (hospitality). Car VRs are *automotive*, painting gigapixels
+  *fine-art* — all editable in the admin portal.
+
+## Deploy — see LAUNCH.md
+
+The launch checklist, the ready `config.php` (DB creds + admin hash pre-filled),
+the phpMyAdmin `seed.sql`, and the admin URL/password all live in
+**[LAUNCH.md](LAUNCH.md)**. Off-page visibility work is in
+**[SEO-PLAYBOOK.md](SEO-PLAYBOOK.md)**.
