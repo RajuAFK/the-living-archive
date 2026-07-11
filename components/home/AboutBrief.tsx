@@ -3,8 +3,13 @@
 import { useEffect, useRef, useState } from "react";
 import { useInView, useReducedMotion } from "motion/react";
 import { Reveal } from "@/components/Reveal";
-import { TodoSlot } from "@/components/TodoSlot";
 import { FACTS } from "@/lib/site";
+
+const NARRATIVE = [
+  "Praxivision began in 1992 as a photography practice built on a single discipline: getting the image right at the moment of capture. Over three decades, that discipline widened into something larger — a studio that documents culturally, historically, and institutionally significant assets and turns them into durable digital records. What started with a camera now spans photogrammetry, digital twins, immersive tours, and long-term archives.",
+  "We describe our work as an end-to-end documentation and archival pipeline because we stay with a subject from the first frame to the final archive. Capture, reconstruction, metadata, and access are not separate services handed off between vendors — they are one continuous process under one roof. A temple wall photographed on site becomes a measurable 3D model, a catalogued archive, and a virtual experience the public can walk through, without the data ever leaving a single controlled workflow.",
+  "We work with the institutions that hold India's heritage and the organizations that build its infrastructure: temple trusts and government bodies, museums and universities, hospitals and industrial groups. Between India and the rest of the world, we've delivered over 2,100 projects for clients whose assets are worth preserving precisely — from Tirumala Tirupati Devasthanams to Angkor Archaeological Park.",
+];
 
 /**
  * The first light "reading room" — who Praxivision is, anchored by the two
@@ -36,12 +41,15 @@ export function AboutBrief() {
             </Reveal>
           </div>
 
-          <Reveal delay={0.1} className="flex flex-col justify-center">
-            <TodoSlot
-              id="home.about.narrative"
-              hint="2–3 short paragraphs introducing Praxivision: the studio's origin, what 'end-to-end documentation and archival pipeline' means in your words, and who you work with (institutions, industries, cultural bodies)."
-              className="min-h-[180px]"
-            />
+          <Reveal delay={0.1} className="flex flex-col justify-center gap-5">
+            {NARRATIVE.map((para, i) => (
+              <p
+                key={i}
+                className="max-w-xl text-[15px] leading-[1.75] text-ink-text-dim"
+              >
+                {para}
+              </p>
+            ))}
           </Reveal>
         </div>
       </div>

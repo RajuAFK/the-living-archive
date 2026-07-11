@@ -1,6 +1,11 @@
 import { Reveal } from "@/components/Reveal";
-import { TodoSlot } from "@/components/TodoSlot";
 import { FACTS } from "@/lib/site";
+
+const TIV_COPY =
+  "Tour It Virtually is our immersive access layer, in operation since 2013. It converts physical spaces into interactive virtual environments the public can explore — heritage sites, museums, campuses, tourism destinations, and healthcare and industrial facilities. It exists to close the gap between documentation and engagement: capturing a place at museum grade is only half the value if no one beyond its walls can experience it. Tour It Virtually is where a completed documentation project becomes something a student, a pilgrim, or a traveller anywhere can walk through.";
+
+const VM_COPY =
+  "The Virtual Museum is our public heritage and education platform — a space for cultural assets to be experienced at a depth a physical visit rarely allows. It will hold Gaussian-splat 3D captures and gigapixel imagery of monuments, artefacts, and artworks, presented for exploration rather than a single fixed viewpoint. Built for students, researchers, and the wider public, it is designed to grow into a continuously expanding collection where each new project adds to a shared, openly accessible record of heritage.";
 
 /**
  * Public access platforms built by the studio — where anyone can explore
@@ -52,10 +57,7 @@ export function PlatformsSection() {
                   touritvirtually.com
                 </p>
               </div>
-              <TodoSlot
-                id="home.platforms.touritvirtually"
-                hint="One short paragraph on what Tour It Virtually offers the public — which sites/tours are on it and why it exists."
-              />
+              <p className="text-[14px] leading-[1.7] text-linen-dim">{TIV_COPY}</p>
             </a>
           </Reveal>
 
@@ -77,10 +79,7 @@ export function PlatformsSection() {
                   Coming soon
                 </p>
               </div>
-              <TodoSlot
-                id="home.platforms.virtualmuseum"
-                hint="One short paragraph on the Virtual Museum: what it will hold, who it's for, expected shape. Also confirm the final name/domain."
-              />
+              <p className="text-[14px] leading-[1.7] text-linen-dim">{VM_COPY}</p>
             </div>
           </Reveal>
         </div>

@@ -6,6 +6,7 @@ import { SERVICE_BACKDROPS } from "@/lib/service-media";
 import { mediaUrl } from "@/lib/media";
 import { Reveal } from "@/components/Reveal";
 import { TodoSlot } from "@/components/TodoSlot";
+import { SERVICE_COPY } from "@/lib/service-copy";
 import { ServiceShowcase } from "@/components/services/ServiceShowcase";
 
 export function generateStaticParams() {
@@ -73,18 +74,35 @@ export default async function ServicePage({
         </div>
       </header>
 
-      {/* what it achieves — copy pending */}
+      {/* what it achieves */}
       <section className="mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-28">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr]">
           <Reveal>
             <p className="label-mono">What it achieves</p>
           </Reveal>
           <Reveal delay={0.1}>
-            <TodoSlot
-              id={`services.${service.slug}.body`}
-              hint={`The full narrative for "${service.name}": what the service achieves, how it runs (method, instruments, deliverables), and who it's for. 3–6 paragraphs; can include sub-headings.`}
-              className="min-h-[220px]"
-            />
+            {SERVICE_COPY[service.slug] ? (
+              <div className="space-y-6">
+                {SERVICE_COPY[service.slug].map((para, i) => (
+                  <p
+                    key={i}
+                    className={
+                      i === 0
+                        ? "display text-2xl leading-snug text-linen md:text-3xl"
+                        : "max-w-2xl text-[15px] leading-[1.75] text-linen-dim"
+                    }
+                  >
+                    {para}
+                  </p>
+                ))}
+              </div>
+            ) : (
+              <TodoSlot
+                id={`services.${service.slug}.body`}
+                hint={`The full narrative for "${service.name}".`}
+                className="min-h-[220px]"
+              />
+            )}
           </Reveal>
         </div>
       </section>

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
-import { TodoSlot } from "@/components/TodoSlot";
 import { mediaUrl } from "@/lib/media";
 import { FACTS } from "@/lib/site";
 
@@ -18,40 +17,28 @@ const CRAFTS = [
     sample: "/portfolio/3D%20Models/lepakshi-ganesha/lepakshi-ganesha.png",
     archiveHref: "/archives/?domain=3d",
     cta: "3D in the archives",
-    todo: {
-      id: "studio.craft.3d",
-      hint: "How photographic control (light, lens, exposure) becomes photogrammetry — 2–3 sentences.",
-    },
+    body: "Photogrammetry is photography before it is geometry. The accuracy of a 3D model depends entirely on how each frame is lit, exposed, and overlapped at capture — which is why three decades behind the lens matter more here than any software setting. We treat every object as a photographic subject first, and the measurable 3D result follows from that discipline.",
   },
   {
     name: "360° capture",
     sample: "/portfolio/Praxis%20VRs/Thumbnails%20for%20Web%20Gallereis/LSCH_Thumb.jpg",
     archiveHref: "/archives/?domain=vr-360",
     cta: "360° tours in the archives",
-    todo: {
-      id: "studio.craft.360",
-      hint: "The panoramic/tour practice — instruments, stitching discipline, hosting. 2–3 sentences.",
-    },
+    body: "A 360° environment is only as immersive as the images it's stitched from. Correct exposure, consistent lighting, and precise panoramic capture are what let dozens of frames resolve into a single seamless space with no visible seams or shifts. The immersion people feel in a virtual tour is really the photographic craft behind every node.",
   },
   {
     name: "Gigapixel",
     sample: "/portfolio/Gigapans/Paintings/Ravivarma_Painting.jpg",
     archiveHref: "/archives/?domain=gigapixel",
     cta: "Gigapixels in the archives",
-    todo: {
-      id: "studio.craft.gigapixel",
-      hint: "Gigapan methodology for artworks, manuscripts and locations. 2–3 sentences.",
-    },
+    body: "Gigapixel imaging captures a painting or artefact in more detail than the eye can take in at once — every brushstroke, crack, and texture held at archival resolution. It demands methodical capture and flawless color management across hundreds of individual frames. This is where fine-art photography and digital preservation meet: a record faithful enough to study long after the original has aged.",
   },
   {
     name: "Reality capture",
     sample: "/portfolio/Gigapans/Golconda_Gigapan/Golconda_Gigapan.png",
     archiveHref: "/archives/?industry=heritage",
     cta: "Heritage capture in the archives",
-    todo: {
-      id: "studio.craft.reality",
-      hint: "Digital twins / reality capture of structures and facilities. 2–3 sentences.",
-    },
+    body: "Reality capture translates a physical space into accurate spatial data, but the quality of that data begins with how the space is read and photographed. Field discipline — planning coverage, controlling light, choosing the right instrument for the conditions — is what turns raw scans into a dependable digital twin. The technology captures the space; the photographic craft is what makes it trustworthy.",
   },
 ];
 
@@ -187,7 +174,7 @@ export default function StudioPage() {
                     {c.name}
                   </h3>
                   <div className="space-y-5">
-                    <TodoSlot id={c.todo.id} hint={c.todo.hint} />
+                    <p className="text-[14px] leading-[1.7] text-linen-dim">{c.body}</p>
                     <Link
                       href={c.archiveHref}
                       className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-verdigris transition-colors hover:text-verdigris-bright"

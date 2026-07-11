@@ -4,36 +4,27 @@ Every `◌ COPY PENDING` box on the site maps to an ID below. Reply with the ID
 and the text (or drop files) and it gets wired in. Nothing here blocks the
 build — the site renders with visible placeholders until each item lands.
 
-## Home
+## Home — ALL DONE ✓
 
-| ID | What's needed |
+| ID | Status |
 |---|---|
-| `home.about.narrative` | 2–3 short paragraphs introducing Praxivision — origin, what "end-to-end documentation & archival pipeline" means in your words, who you work with. |
-| `home.process.capture` | How the studio gathers high-quality input data (photographic principles, instruments, field discipline). |
-| `home.process.process` | How captures are processed and enriched (stitching, reconstruction, color, metadata). |
-| `home.process.access` | How access is set up around the client's / subject's needs (hosting, viewers, archives, rights). |
-| `home.platforms.touritvirtually` | One paragraph on what Tour It Virtually offers the public. |
-| `home.platforms.virtualmuseum` | One paragraph on the Virtual Museum + confirm final name/domain. |
+| ~~`home.about.narrative`~~ | **DONE** — review on `/` (The studio section). |
+| ~~`home.process.capture` / `.process` / `.access`~~ | **DONE** — review on `/` (The discipline section). |
+| ~~`home.platforms.touritvirtually`~~ | **DONE** — review on `/` (Platforms section). |
+| ~~`home.platforms.virtualmuseum`~~ | **DONE** — copy in; still confirm the final **name/domain** if it changes. |
 
-## Services (one per page)
+## Services — ALL DONE ✓
 
-| ID | What's needed |
-|---|---|
-| `services.heritage-cultural-documentation.body` | Full narrative: what it achieves, method, deliverables, who it's for. |
-| `services.photogrammetry-3d-digitization.body` | Same. |
-| `services.digital-twins-reality-capture.body` | Same. |
-| `services.industrial-infrastructure-documentation.body` | Same. |
-| `services.virtual-tours-immersive-experiences.body` | Same. |
-| `services.digital-archiving-preservation-pipeline.body` | Same — this is the flagship; pitch it at institutions/museums. |
+All six bodies wired from your copy (`lib/service-copy.ts`); review each on `/services/<slug>/`.
 
 ## Studio
 
 | ID | What's needed |
 |---|---|
-| ~~`studio.founder.story`~~ | **DONE** — B. Sridhar Raju narrative written from your brief + the Praxis Studio deck; review the four paragraphs on /studio/. |
-| ~~Mission & Vision~~ | **DONE** — adapted from the deck; review on /studio/. |
-| `studio.portrait` | A portrait photograph (file or R2 path). |
-| `studio.craft.3d` / `.360` / `.gigapixel` / `.reality` | 2–3 sentences each on how photography translates into that instrument. |
+| ~~`studio.founder.story`~~ | **DONE** — B. Sridhar Raju narrative; review the four paragraphs on /studio/. |
+| ~~Mission & Vision~~ | **DONE** — review on /studio/. |
+| ~~`studio.craft.3d` / `.360` / `.gigapixel` / `.reality`~~ | **DONE** — review on /studio/ (One craft, four instruments). |
+| `studio.portrait` | **STILL NEEDED** — a portrait photograph of Sridhar Raju (file or R2 path). |
 
 ## Footer
 
