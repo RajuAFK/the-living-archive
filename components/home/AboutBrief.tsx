@@ -6,9 +6,9 @@ import { Reveal } from "@/components/Reveal";
 import { FACTS } from "@/lib/site";
 
 const NARRATIVE = [
-  "Praxivision began in 1992 as a photography practice built on a single discipline: getting the image right at the moment of capture. Over three decades, that discipline widened into something larger — a studio that documents culturally, historically, and institutionally significant assets and turns them into durable digital records. What started with a camera now spans photogrammetry, digital twins, immersive tours, and long-term archives.",
-  "We describe our work as an end-to-end documentation and archival pipeline because we stay with a subject from the first frame to the final archive. Capture, reconstruction, metadata, and access are not separate services handed off between vendors — they are one continuous process under one roof. A temple wall photographed on site becomes a measurable 3D model, a catalogued archive, and a virtual experience the public can walk through, without the data ever leaving a single controlled workflow.",
-  "We work with the institutions that hold India's heritage and the organizations that build its infrastructure: temple trusts and government bodies, museums and universities, hospitals and industrial groups. Between India and the rest of the world, we've delivered over 2,100 projects for clients whose assets are worth preserving precisely — from Tirumala Tirupati Devasthanams to Angkor Archaeological Park.",
+  "Praxivision began in 1992 as a photography practice built on one discipline: getting the image right at the moment of capture. Three decades on, that same rigour spans photogrammetry, digital twins, immersive tours, and long-term archives.",
+  "We call it an end-to-end pipeline because we stay with a subject from the first frame to the final archive — capture, reconstruction, metadata, and access as one continuous process, never handed between vendors. A temple wall becomes a measurable 3D model, a catalogued archive, and a virtual walkthrough, without ever leaving a single workflow.",
+  "We work with the institutions that hold India's heritage and the organizations that build its infrastructure. Over 2,100 projects, from Tirumala Tirupati Devasthanams to Angkor Archaeological Park.",
 ];
 
 /**

@@ -17,28 +17,28 @@ const CRAFTS = [
     sample: "/portfolio/3D%20Models/lepakshi-ganesha/lepakshi-ganesha.png",
     archiveHref: "/archives/?domain=3d",
     cta: "3D in the archives",
-    body: "Photogrammetry is photography before it is geometry. The accuracy of a 3D model depends entirely on how each frame is lit, exposed, and overlapped at capture — which is why three decades behind the lens matter more here than any software setting. We treat every object as a photographic subject first, and the measurable 3D result follows from that discipline.",
+    body: "Photogrammetry is photography before it is geometry. A model is only as accurate as the frames it's built from — so we treat every object as a photographic subject first, and the measurable result follows.",
   },
   {
     name: "360° capture",
     sample: "/portfolio/Praxis%20VRs/Thumbnails%20for%20Web%20Gallereis/LSCH_Thumb.jpg",
     archiveHref: "/archives/?domain=vr-360",
     cta: "360° tours in the archives",
-    body: "A 360° environment is only as immersive as the images it's stitched from. Correct exposure, consistent lighting, and precise panoramic capture are what let dozens of frames resolve into a single seamless space with no visible seams or shifts. The immersion people feel in a virtual tour is really the photographic craft behind every node.",
+    body: "A 360° environment is only as immersive as the frames it's stitched from. Correct exposure, consistent light, and precise panoramic capture are what let dozens of images resolve into one seamless space — the craft behind every node.",
   },
   {
     name: "Gigapixel",
     sample: "/portfolio/Gigapans/Paintings/Ravivarma_Painting.jpg",
     archiveHref: "/archives/?domain=gigapixel",
     cta: "Gigapixels in the archives",
-    body: "Gigapixel imaging captures a painting or artefact in more detail than the eye can take in at once — every brushstroke, crack, and texture held at archival resolution. It demands methodical capture and flawless color management across hundreds of individual frames. This is where fine-art photography and digital preservation meet: a record faithful enough to study long after the original has aged.",
+    body: "Gigapixel imaging holds a painting or artefact in more detail than the eye can take in at once — every brushstroke and crack at archival resolution. It's where fine-art photography meets preservation: a record faithful enough to study long after the original has aged.",
   },
   {
     name: "Reality capture",
     sample: "/portfolio/Gigapans/Golconda_Gigapan/Golconda_Gigapan.png",
     archiveHref: "/archives/?industry=heritage",
     cta: "Heritage capture in the archives",
-    body: "Reality capture translates a physical space into accurate spatial data, but the quality of that data begins with how the space is read and photographed. Field discipline — planning coverage, controlling light, choosing the right instrument for the conditions — is what turns raw scans into a dependable digital twin. The technology captures the space; the photographic craft is what makes it trustworthy.",
+    body: "Reality capture translates a space into accurate spatial data — but that data is only as good as how the space is read and photographed. The technology captures the space; the field discipline is what makes it trustworthy.",
   },
 ];
 
@@ -103,24 +103,22 @@ export default function StudioPage() {
                   Praxis Studio.
                 </p>
                 <p>
-                  What followed was three decades of commissioned work across
-                  industry, healthcare, hospitality and advertising — and, running
-                  alongside it, a longer devotion: photographing temples, sculptures,
-                  fine art and heritage sites, including over twenty-five years of
-                  documentation work with Tirumala Tirupati Devasthanams and
-                  assignments as far afield as the Angkor Archaeological Park in
-                  Cambodia.
+                  Three decades of commissioned work across industry, healthcare
+                  and advertising followed — and, alongside it, a longer devotion:
+                  temples, sculptures, fine art and heritage, including 25+ years
+                  with Tirumala Tirupati Devasthanams and assignments as far as
+                  Angkor, Cambodia.
                 </p>
                 <p>
                   The discipline never changed — light, lens, patience — but the
-                  instruments grew: close-range photogrammetry, 360° capture,
-                  gigapixel imaging, reality capture. Each one an extension of the
-                  same photographic craft into another dimension of record.
+                  instruments grew: photogrammetry, 360° capture, gigapixel imaging,
+                  reality capture. Each an extension of the same craft into another
+                  dimension of record.
                 </p>
                 <p>
                   Praxivision is where that journey was always heading: a company
-                  established to preserve the culture and heritage of the world in
-                  digital form — for future generations to access.
+                  established to preserve the world's culture and heritage in digital
+                  form, for future generations to access.
                 </p>
               </div>
             </Reveal>

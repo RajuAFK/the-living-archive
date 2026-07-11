@@ -4,17 +4,17 @@ const ACTS = [
   {
     n: "I",
     name: "capture",
-    body: "Every project begins with data that has to be right the first time, because a monument, an artefact, or a construction milestone rarely offers a second chance. Our capture practice is built on more than thirty years in professional photography: controlled lighting, correct exposure, and an understanding of how a subject reads to the lens before a single frame is taken. We plan each shoot around the asset's constraints — its scale, its fragility, its accessibility, the conditions on site — rather than forcing the asset to fit a fixed method. Professional DSLR and mirrorless systems, heritage and architectural lenses, drone platforms for aerial coverage, and panoramic rigs are matched to the job, with metadata recorded at the point of capture. The instrument changes from project to project; the field discipline behind it does not.",
+    body: "A monument, an artefact, or a construction milestone rarely offers a second chance — so the data has to be right the first time. Built on thirty years of professional photography, each shoot is planned around the asset's scale, fragility, and setting, the instruments matched to the job. The tools change from project to project; the discipline behind them does not.",
   },
   {
     n: "II",
     name: "process",
-    body: "Raw captures are only the input. In processing, hundreds or thousands of overlapping images are aligned and reconstructed into accurate 3D geometry, panoramas are stitched into seamless high-resolution and gigapixel environments, and color is managed so the digital record faithfully represents the original. Meshes are built and textured, point clouds cleaned, and every asset checked against the source under a formal quality-assurance step. Alongside the geometry, we attach the context that makes data usable decades later — provenance, cataloguing, and preservation metadata — so a file is never just a model, but a documented record that a researcher or conservator can trust and reuse.",
+    body: "Raw captures are only the input. Overlapping frames are reconstructed into accurate 3D geometry, panoramas stitched into seamless gigapixel environments, and colour managed to stay faithful to the original. To the geometry we add provenance, cataloguing, and preservation metadata — so a file is never just a model, but a record a conservator can trust decades later.",
   },
   {
     n: "III",
     name: "access",
-    body: "Access is designed around two questions: what the client needs, and what the subject deserves. Some work is meant for the public — a virtual tour, an interactive walkthrough, a searchable collection. Other work is institution-only: a secure archive, a preservation package, an asset-management repository accessed by conservators and administrators. We set up hosting, viewers, and archives to fit that intent, with the client's rights and the sensitivity of the material governing who can see what. The result is delivered in the form the client will actually use, from web-based immersive experiences to structured, institution-specific archival packages built to last.",
+    body: "Access is shaped by two questions: what the client needs, and what the subject deserves. Some work is made public — a virtual tour, a searchable collection; other work stays institutional — a secure archive, a preservation package. We build hosting, viewers, and archives to fit that intent, delivered in the form the client will actually use.",
   },
 ] as const;
 
