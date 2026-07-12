@@ -13,6 +13,7 @@ import {
   type ArchiveItem,
 } from "@/lib/archive";
 import { mediaUrl, modelViewerUrl } from "@/lib/media";
+import { lockScroll, unlockScroll } from "@/lib/scroll-lock";
 import { FrameViewer } from "@/components/viewers/FrameViewer";
 import { Lightbox } from "@/components/viewers/Lightbox";
 
@@ -257,10 +258,10 @@ function DetailOverlay({ item, onClose }: { item: ArchiveItem; onClose: () => vo
       if (e.key === "Escape") onClose();
     };
     window.addEventListener("keydown", onKey);
-    document.documentElement.style.overflow = "hidden";
+    lockScroll();
     return () => {
       window.removeEventListener("keydown", onKey);
-      document.documentElement.style.overflow = "";
+      unlockScroll();
     };
   }, [onClose]);
 

@@ -80,6 +80,27 @@ body {
   outline-offset: 3px;
 }
 
+/* ——— Lenis smooth-scroll recommended reset —————————————————————
+   Without these, a `height: 100%` on <html> fights Lenis and makes the
+   scrollbar snap back intermittently. Lenis stamps these classes on <html>. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+/* while Lenis is animating, iframes must not swallow the wheel/pointer */
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
 /* thin, unobtrusive scrollbar on the vault */
 * {
   scrollbar-width: thin;

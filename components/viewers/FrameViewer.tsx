@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { lockScroll, unlockScroll } from "@/lib/scroll-lock";
 
 const SANDBOX =
   "allow-scripts allow-same-origin allow-popups allow-pointer-lock allow-forms";
@@ -52,11 +53,11 @@ export function FrameViewer({
     return () => document.removeEventListener("fullscreenchange", onChange);
   }, []);
 
-  // pseudo-fullscreen: lock body scroll + allow Esc to exit
+  // pseudo-fullscreen: lock background scroll (coordinated with Lenis + any
+  // parent overlay lock) and allow Esc to exit
   useEffect(() => {
     if (!pseudoFs) return;
-    const prev = document.documentElement.style.overflow;
-    document.documentElement.style.overflow = "hidden";
+    lockScroll();
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setPseudoFs(false);
@@ -65,7 +66,7 @@ export function FrameViewer({
     };
     window.addEventListener("keydown", onKey);
     return () => {
-      document.documentElement.style.overflow = prev;
+      unlockScroll();
       window.removeEventListener("keydown", onKey);
     };
   }, [pseudoFs]);

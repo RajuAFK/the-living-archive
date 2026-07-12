@@ -106,9 +106,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${archivo.variable} ${fragmentMono.variable} h-full antialiased`}
+      className={`${fraunces.variable} ${archivo.variable} ${fragmentMono.variable} antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      {/* min-h-dvh (not min-h-full) keeps the sticky footer without giving
+          <html> a fixed 100% height, which would fight Lenis smooth-scroll. */}
+      <body className="flex min-h-dvh flex-col">
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
         <SmoothScroll />
         <Navbar />

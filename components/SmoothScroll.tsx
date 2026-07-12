@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Lenis from "lenis";
+import { registerLenis, unregisterLenis } from "@/lib/scroll-lock";
 
 /**
  * Buttery inertial scrolling for the whole site.
@@ -16,8 +17,13 @@ export function SmoothScroll() {
       lerp: 0.11,
       anchors: true,
     });
+    // let overlays pause/resume scroll instead of fighting it with overflow:hidden
+    registerLenis(lenis);
 
-    return () => lenis.destroy();
+    return () => {
+      unregisterLenis(lenis);
+      lenis.destroy();
+    };
   }, []);
 
   return null;

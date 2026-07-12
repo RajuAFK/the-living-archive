@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV, SERVICES } from "@/lib/site";
+import { lockScroll, unlockScroll } from "@/lib/scroll-lock";
 
 /**
  * Glassmorphic navbar. A full-width translucent strip at the top of the page
@@ -37,10 +38,9 @@ export function Navbar() {
   }, [pathname]);
 
   useEffect(() => {
-    document.documentElement.style.overflow = menuOpen ? "hidden" : "";
-    return () => {
-      document.documentElement.style.overflow = "";
-    };
+    if (!menuOpen) return;
+    lockScroll();
+    return () => unlockScroll();
   }, [menuOpen]);
 
   const isActive = (href: string) =>
