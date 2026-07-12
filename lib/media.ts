@@ -1,5 +1,5 @@
 /**
- * All portfolio media lives in the Cloudflare R2 bucket `praxivision-portfolio`.
+ * All portfolio media lives in the Cloudflare R2 bucket `praxivision`.
  * Paths in the database/manifest are stored relative ("/portfolio/…") and get
  * prefixed here, so dev/staging/prod can point at different buckets.
  */

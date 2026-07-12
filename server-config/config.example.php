@@ -46,5 +46,5 @@ const ADMIN_PASSWORD_HASH = 'CHANGE-ME';
 const R2_ACCOUNT_ID = 'CHANGE-ME';
 const R2_ACCESS_KEY = 'CHANGE-ME';
 const R2_SECRET_KEY = 'CHANGE-ME';
-const R2_BUCKET     = 'praxivision-portfolio';
+const R2_BUCKET     = 'praxivision';
 const R2_PUBLIC_BASE = 'https://pub-b6df9c86ce26430caf9d07b91b02796f.r2.dev';

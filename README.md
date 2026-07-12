@@ -15,7 +15,7 @@ for this build (it never appears in the UI).
 | Frontend | Next.js 16 (App Router) static export, Tailwind v4, Motion, Lenis | `public_html/` on Hostinger (Apache) |
 | Dynamic content | PHP 8 JSON endpoints under `public/api/` | Same webroot — no Node on the server |
 | Data | MySQL `u220392676_praxis`, tables `la_*` | Hostinger |
-| Media | Cloudflare R2 `praxivision-portfolio` | `pub-…r2.dev` public bucket |
+| Media | Cloudflare R2 `praxivision` | `pub-…r2.dev` public bucket |
 | Admin | `/admin/` single-file PHP SPA, password + session + CSRF | Same webroot |
 
 Key documents: [DEPLOY.md](DEPLOY.md) · [CONTENT-TODO.md](CONTENT-TODO.md) ·

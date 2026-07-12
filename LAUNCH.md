@@ -66,8 +66,8 @@ These never go in Git. Use Hostinger **File Manager** (or SFTP).
    not inside it).
 2. Upload **`server-config/config.php`** there, so it becomes
    `/home/u220392676/domains/praxivision.com/private/config.php`.
-   - DB credentials and the admin password hash are already filled in.
-   - You still need to paste the R2 keys — see Step 5.
+   - DB credentials, admin password hash, **and the R2 keys are all filled
+     in** — nothing left to paste. Just upload the file as-is.
 
 ## Step 4 — Create the database tables + seed the archive 🧑
 
@@ -80,20 +80,15 @@ These never go in Git. Use Hostinger **File Manager** (or SFTP).
      already in this database from the previous site); the endpoint adds a
      `phone` column automatically on first use. Nothing to import for it.
 
-## Step 5 — Cloudflare R2: keys + CORS 🧑
+## Step 5 — Cloudflare R2: CORS 🧑
 
-The admin portal uploads new media straight from the browser to R2, so R2 must
-(a) give the server signing keys and (b) allow browser `PUT`.
+The R2 **keys are already in `config.php`** (token "praxivision upload",
+verified read+write). The only remaining R2 step is CORS: the admin portal
+uploads media straight from the browser to R2, so the bucket must allow browser
+`PUT` from the site origin.
 
-1. Cloudflare → **R2 → Manage R2 API Tokens → Create API Token**:
-   - Permission **Object Read & Write**, scoped to bucket
-     `praxivision-portfolio`.
-   - Copy the **Access Key ID**, **Secret Access Key**, and your **Account ID**
-     (in the R2 URL).
-2. Edit `private/config.php` on the server and replace the three
-   `PASTE-R2-…` values with those keys.
-3. Cloudflare → **R2 → praxivision-portfolio → Settings → CORS Policy** → add
-   `PUT` and the production origin:
+- Cloudflare → **R2 → praxivision → Settings → CORS Policy** → add
+  `PUT` and the production origin:
    ```json
    [
      {

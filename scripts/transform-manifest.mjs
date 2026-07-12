@@ -31,7 +31,21 @@ const DOMAIN = { photography: "photography", vr: "vr-360", gigapixel: "gigapixel
 // Junk/duplicate manifest entries to drop entirely.
 // `glb` is a staging leftover (all-caps "SARANATH STHUPA.glb" in a /GLB/ folder)
 // that duplicates the proper `saranath-sthupa` model.
-const DROP = new Set(["glb"]);
+// `golconda-gigapan-heavy` was an extra full-res variant, not needed.
+const DROP = new Set(["glb", "golconda-gigapan-heavy"]);
+
+/**
+ * Strip "- Copy" duplicate plates from a gallery. Perceptual hashing confirmed
+ * these are pixel-identical to their non-copy siblings (just re-saved files).
+ * Matches a stem ending in " copy" / " - Copy" / "_copy" etc. (case-insensitive).
+ */
+function dedupeGallery(gallery) {
+  const isCopy = (url) => {
+    const stem = decodeURIComponent(url.split("/").pop() ?? "").replace(/\.[^.]+$/, "");
+    return /[\s_-]+copy$/i.test(stem);
+  };
+  return gallery.filter((url) => !isCopy(url));
+}
 
 // Explicit title overrides where the manifest id isn't presentable.
 const TITLE = {
@@ -95,7 +109,7 @@ const items = manifest.works
       kind: w.kind, // gallery | iframe | model
       title: TITLE[w.id] ?? w.title,
       cover: w.cover || null,
-      gallery: w.kind === "gallery" ? w.gallery : undefined,
+      gallery: w.kind === "gallery" ? dedupeGallery(w.gallery) : undefined,
       src: w.iframeSrc || w.modelSrc || undefined,
       sort: i,
       review: REVIEW.has(w.id) || undefined,

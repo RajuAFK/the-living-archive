@@ -12,7 +12,7 @@ other sites: static files in `public_html/`, secrets in per-domain `private/`.
   form are all served at runtime — **content edits never need a rebuild**.
 - **Admin portal**: `/admin/` (PHP, single password). Uploads go browser → R2
   directly via presigned PUT.
-- **Media**: Cloudflare R2 bucket `praxivision-portfolio`
+- **Media**: Cloudflare R2 bucket `praxivision`
   (`https://pub-b6df9c86ce26430caf9d07b91b02796f.r2.dev`).
 
 ## One-time setup

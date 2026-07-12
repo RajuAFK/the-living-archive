@@ -35,30 +35,72 @@ export function FrameViewer({
   const containerRef = useRef<HTMLDivElement>(null);
   const [loaded, setLoaded] = useState(eager);
   const [unmuted, setUnmuted] = useState(false);
-  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [nativeFs, setNativeFs] = useState(false);
+  // iOS Safari has no Fullscreen API for non-<video> elements, so we fall back
+  // to a CSS "pseudo-fullscreen" (fixed, covering the viewport) that works
+  // everywhere. `isFullscreen` covers both modes.
+  const [pseudoFs, setPseudoFs] = useState(false);
+  const isFullscreen = nativeFs || pseudoFs;
 
   useEffect(() => {
     const onChange = () => {
       const fs = document.fullscreenElement === containerRef.current;
-      setIsFullscreen(fs);
+      setNativeFs(fs);
       if (!fs) setUnmuted(false);
     };
     document.addEventListener("fullscreenchange", onChange);
     return () => document.removeEventListener("fullscreenchange", onChange);
   }, []);
 
+  // pseudo-fullscreen: lock body scroll + allow Esc to exit
+  useEffect(() => {
+    if (!pseudoFs) return;
+    const prev = document.documentElement.style.overflow;
+    document.documentElement.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setPseudoFs(false);
+        setUnmuted(false);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.documentElement.style.overflow = prev;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [pseudoFs]);
+
   const toggleFullscreen = async () => {
-    if (document.fullscreenElement) {
-      await document.exitFullscreen?.();
-    } else {
-      // mount on the same gesture so fullscreen never shows the poster
-      setLoaded(true);
-      await containerRef.current?.requestFullscreen?.();
+    setLoaded(true); // mount on the same gesture so fullscreen never shows the poster
+    if (isFullscreen) {
+      if (document.fullscreenElement) await document.exitFullscreen?.();
+      setPseudoFs(false);
+      setUnmuted(false);
+      return;
     }
+    const el = containerRef.current;
+    const canNative =
+      typeof document !== "undefined" &&
+      document.fullscreenEnabled &&
+      typeof el?.requestFullscreen === "function";
+    if (canNative) {
+      try {
+        await el!.requestFullscreen();
+        return;
+      } catch {
+        // fall through to pseudo-fullscreen
+      }
+    }
+    setPseudoFs(true);
   };
 
   return (
-    <div ref={containerRef} className={`media-box ${className}`}>
+    <div
+      ref={containerRef}
+      className={`media-box ${className} ${
+        pseudoFs ? "!fixed !inset-0 !z-[200] !rounded-none" : ""
+      }`}
+    >
       {loaded ? (
         <iframe
           key={unmuted ? "live" : "muted"}
@@ -104,30 +146,35 @@ export function FrameViewer({
         </button>
       )}
 
-      {/* fullscreen toggle */}
+      {/* fullscreen toggle — clears the iOS notch when pseudo-fullscreen */}
       <button
         type="button"
         onClick={toggleFullscreen}
         aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
-        className="glass absolute right-3 top-3 z-[2] inline-flex h-9 w-9 items-center justify-center rounded-full text-linen transition-colors duration-200 hover:text-verdigris-bright"
-        style={{ position: "absolute" }}
+        className="glass absolute right-3 z-[3] inline-flex h-9 w-9 items-center justify-center rounded-full text-linen transition-colors duration-200 hover:text-verdigris-bright"
+        style={{
+          position: "absolute",
+          top: pseudoFs ? "calc(0.75rem + env(safe-area-inset-top, 0px))" : "0.75rem",
+        }}
       >
         {isFullscreen ? <IconExitFull /> : <IconFull />}
       </button>
 
-      {/* audio opt-in — fullscreen only */}
+      {/* audio opt-in — fullscreen only. Bottom-centered so it never overlaps a
+          title bar (the media's own, or the viewer header) at the top. Sits
+          above the iOS safe-area inset. */}
       {loaded && isFullscreen && (
         <button
           type="button"
           onClick={() => setUnmuted((v) => !v)}
           className={[
-            "absolute left-1/2 top-4 z-[2] inline-flex -translate-x-1/2 items-center gap-2 rounded-full px-5 py-2.5",
+            "absolute bottom-5 left-1/2 z-[2] inline-flex -translate-x-1/2 items-center gap-2 rounded-full px-5 py-2.5",
             "font-mono text-[10px] uppercase tracking-[0.24em] backdrop-blur-md transition-colors duration-200",
             unmuted
               ? "bg-verdigris text-ink-0"
               : "border border-linen/30 bg-ink-0/70 text-linen",
           ].join(" ")}
-          style={{ position: "absolute" }}
+          style={{ position: "absolute", bottom: "calc(1.25rem + env(safe-area-inset-bottom, 0px))" }}
         >
           {unmuted ? "Mute audio" : "Unmute audio"}
         </button>
