@@ -35,8 +35,8 @@ const fragmentMono = Fragment_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default:
-      "Praxivision — Heritage Digitization & Digital Preservation Studio",
+    // ≤60 chars so search engines don't truncate the homepage title.
+    default: "Praxivision — Heritage Digitization & Digital Preservation",
     template: "%s · Praxivision",
   },
   description: SITE_DESCRIPTION,

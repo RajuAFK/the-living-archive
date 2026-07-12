@@ -9,7 +9,7 @@ import { abs, breadcrumbSchema } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Studio",
   description:
-    "The studio behind Praxivision. Founded 1992 by B. Sridhar Raju, an award-winning photographer whose discipline evolved into photogrammetry, 3D, 360° and gigapixel reality capture.",
+    "The studio behind Praxivision — founded 1992 by B. Sridhar Raju, whose photographic discipline evolved into photogrammetry, 3D, 360° and gigapixel capture.",
   alternates: { canonical: "/studio/" },
   openGraph: { title: "Studio · Praxivision", url: "/studio/", type: "profile" },
 };

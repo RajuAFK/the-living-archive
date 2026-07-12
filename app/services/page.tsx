@@ -8,7 +8,7 @@ import { Reveal } from "@/components/Reveal";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Six ways of preserving reality: heritage documentation, photogrammetry & 3D digitization, digital twins, industrial documentation, virtual tours, and the end-to-end archival pipeline.",
+    "Six disciplines, one pipeline: heritage documentation, photogrammetry, 3D digitization, digital twins, industrial documentation and immersive virtual tours.",
   alternates: { canonical: "/services/" },
   openGraph: { title: "Services · Praxivision", url: "/services/", type: "website" },
 };

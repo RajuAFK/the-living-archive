@@ -5,8 +5,9 @@ export const SITE_URL = "https://praxivision.com";
 
 export const SITE_NAME = "Praxivision";
 export const SITE_TAGLINE = "Capture, Process, Access.";
+// Kept ~155 chars for search snippets (Bing/Google truncate past ~160).
 export const SITE_DESCRIPTION =
-  "Praxivision is a heritage digitization and digital preservation studio. End-to-end documentation — photography, photogrammetry, 3D digitization, digital twins, gigapixel imaging, 360° virtual tours and long-term archives — for museums, temple trusts, governments and industry. Documenting India's culture and industry since 1992.";
+  "End-to-end heritage digitization and digital preservation since 1992 — photogrammetry, 3D, gigapixel and 360° tours for museums, institutions and industry.";
 
 /** Absolute URL helper. */
 export const abs = (path = "/") => `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
