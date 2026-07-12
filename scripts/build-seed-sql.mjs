@@ -26,6 +26,11 @@ ${schema}
 
 `;
 
+// remove slugs we dropped, so re-importing over an older seed reconciles
+const DROPPED_SLUGS = ["glb", "golconda-gigapan-heavy"];
+out += "-- ── remove retired items (safe if they were never imported) ──\n";
+out += `DELETE FROM la_archive_items WHERE slug IN (${DROPPED_SLUGS.map(q).join(", ")});\n\n`;
+
 // archive items — upsert by slug
 out += "-- ── archive items ──\n";
 for (const it of items) {
