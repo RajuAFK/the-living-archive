@@ -5,9 +5,10 @@ export const SITE_URL = "https://praxivision.com";
 
 export const SITE_NAME = "Praxivision";
 export const SITE_TAGLINE = "Capture, Process, Access.";
-// Kept ~155 chars for search snippets (Bing/Google truncate past ~160).
+// Commercial-led, ~150 chars (Bing/Google truncate past ~160). Leads with the
+// revenue verticals; heritage retained as a marquee specialty.
 export const SITE_DESCRIPTION =
-  "End-to-end heritage digitization and digital preservation since 1992 — photogrammetry, 3D, gigapixel and 360° tours for museums, institutions and industry.";
+  "Documentation and digitization since 1992 — industrial, healthcare, corporate and heritage: photography, 3D, gigapixel, digital twins and 360° tours.";
 
 /** Absolute URL helper. */
 export const abs = (path = "/") => `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
@@ -57,14 +58,18 @@ export function organizationSchema() {
       { "@type": "Country", name: "Cambodia" },
     ],
     knowsAbout: [
-      "Heritage digitization",
-      "Digital preservation",
-      "Photogrammetry",
-      "3D digitization",
+      "Industrial documentation",
+      "Healthcare facility documentation",
+      "Corporate and product photography",
+      "Infrastructure and construction documentation",
       "Digital twins",
       "Reality capture",
+      "Photogrammetry",
+      "3D digitization",
       "Gigapixel imaging",
       "360° virtual tours",
+      "Heritage digitization",
+      "Digital preservation",
       "Museum documentation",
       "Cultural heritage archiving",
     ],

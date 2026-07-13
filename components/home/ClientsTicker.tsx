@@ -108,20 +108,26 @@ function Strip({
         }}
       >
         {[0, 1].map((dup) => (
-          <div key={dup} className="flex items-center gap-16" aria-hidden={dup === 1}>
+          <div key={dup} className="flex items-start gap-16" aria-hidden={dup === 1}>
             {logos.map((l) => (
               <div
                 key={`${dup}-${l.src}`}
-                title={l.name}
-                className="flex h-16 w-36 shrink-0 items-center justify-center"
+                className="flex w-36 shrink-0 flex-col items-center gap-2.5"
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={encodeURI(l.src)}
-                  alt={dup === 0 ? l.name : ""}
-                  loading="eager"
-                  className="max-h-full max-w-full object-contain"
-                />
+                <div className="flex h-16 w-full items-center justify-center">
+                  {/* Decorative: the client name is rendered as real text below,
+                      which is what crawlers, LLMs and screen readers read. */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={encodeURI(l.src)}
+                    alt=""
+                    loading="eager"
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+                <span className="text-center text-[10px] font-medium leading-tight tracking-wide text-ink-text-dim">
+                  {l.name}
+                </span>
               </div>
             ))}
           </div>

@@ -71,7 +71,10 @@ function Stat({
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-10% 0px" });
   const reduced = useReducedMotion();
-  const [display, setDisplay] = useState(reduced ? value : plain ? value - 60 : 0);
+  // Initialize to the FINAL value so the server-rendered HTML (and any client
+  // with JS disabled, i.e. every crawler) shows the real numbers — 1992 and
+  // 2,100+. The count-up below is a client-only enhancement layered on top.
+  const [display, setDisplay] = useState(value);
 
   useEffect(() => {
     if (!inView || reduced) {
