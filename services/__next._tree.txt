@@ -1,0 +1,10 @@
+:HL["/_next/static/chunks/0olh_01q5byhh.css","style"]
+:HL["/_next/static/media/21ca8f3f56c22ca2-s.p.1cp9-4nby68jc.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/54fc36028e2bb174-s.p.20jfceqj9zyw9.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/66b33cc02d8f8b9d-s.p.3slq8sz4zhb1g.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/a9a434ecf764164f-s.p.09kihw1cxxru6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/brand/praxivision.png","image"]
+:HL["https://pub-b6df9c86ce26430caf9d07b91b02796f.r2.dev/portfolio/Photography/Travel/Ajanta_5.jpg","image"]
+:HL["https://pub-b6df9c86ce26430caf9d07b91b02796f.r2.dev/portfolio/3D%20Models/lepakshi-ganesha/lepakshi-ganesha.png","image"]
+:HL["https://pub-b6df9c86ce26430caf9d07b91b02796f.r2.dev/portfolio/Gigapans/Golconda_Gigapan/Golconda_Gigapan.png","image"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"services","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"XTNKJDDssl98tEI1Qj4C_"}

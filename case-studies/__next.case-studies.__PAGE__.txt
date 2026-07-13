@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[74907,["/_next/static/chunks/1e6a0f8c1cmj0.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1p69qpx4y8ohu.js","/_next/static/chunks/18n8dv-hwf0lm.js"],"CaseStudiesIndex"]
+3:I[97367,["/_next/static/chunks/1e6a0f8c1cmj0.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"pt-[76px]","children":[["$","header",null,{"className":"mx-auto max-w-[1400px] px-6 pb-10 pt-16 md:px-10 md:pt-24","children":[["$","p",null,{"className":"label-mono","children":"The work, examined"}],["$","h1",null,{"className":"display mt-4 text-5xl text-linen md:text-7xl","children":["Case Studies",["$","span",null,{"className":"text-verdigris","children":"."}]]}]]}],["$","$L2",null,{}]]}],[["$","script","script-0",{"src":"/_next/static/chunks/1p69qpx4y8ohu.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/18n8dv-hwf0lm.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"XTNKJDDssl98tEI1Qj4C_"}
+5:null

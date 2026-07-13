@@ -1,0 +1,20 @@
+# The Living Archive — Apache config (ships into public_html/ via the build)
+
+RewriteEngine On
+
+# Case-study detail URLs are served by the static shell; the client reads the
+# slug from the path. /case-studies/ itself and /case-studies/view/ stay as-is.
+RewriteRule ^case-studies/(view|)/?$ - [L]
+RewriteRule ^case-studies/([a-z0-9-]+)/?$ case-studies/view/index.html [L]
+
+# Long-cache immutable build assets
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(html|php)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
+
+AddDefaultCharset utf-8
